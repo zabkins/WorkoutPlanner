@@ -15,7 +15,6 @@ public class HomeController {
         this.muscleGroupRepository = muscleGroupRepository;
     }
 
-
     @RequestMapping("/home")
     public String hello(){
         return "/index";

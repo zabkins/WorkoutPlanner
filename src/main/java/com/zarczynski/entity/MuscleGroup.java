@@ -3,7 +3,7 @@ package com.zarczynski.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "musclegroup")
+@Table(name = "muscle_group")
 public class MuscleGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <html>
@@ -16,7 +17,47 @@
             <jsp:include page="sidenav.jsp"/>
             <div id="layoutSidenav_content">
                 <main>
-
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <h1 class="text-uppercase">Current workout plan's name</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="text-secondary">Current Workout Plan</h5>
+                        </div>
+                    </div>
+                    <div class="row align-items-center">
+                        <%-- TU PETLA W ZALEZNOSCI OD ILOSCI DNI TRENINGOWYCH --%>
+                        <c:forEach begin="1" end="5" varStatus="loop">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Training day ${loop.index}</h3>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Exercise 1</li>
+                                        <li class="list-group-item">Exercise 2</li>
+                                        <li class="list-group-item">Exercise 3</li>
+                                        <li class="list-group-item">Exercise 4</li>
+                                        <li class="list-group-item">Exercise 5</li>
+                                        <li class="list-group-item">Exercise 6</li>
+                                        <li class="list-group-item">Exercise 7</li>
+                                    </ul>
+                                    <div class="card-body">
+                                        <button type="button" class="btn btn-dark">
+                                            <a href="#" class="text-white">Save results</a>
+                                        </button>
+                                        <button type="button" class="btn btn-dark">
+                                            <a href="#" class="text-white">Modify Exercises</a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
                 </main>
                 <jsp:include page="footer.jsp"/>
             </div>

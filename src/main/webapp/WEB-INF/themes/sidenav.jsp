@@ -33,7 +33,7 @@
                     Edit Workout Plan
                 </a>
                 <div class="sb-sidenav-menu-heading">Exercises</div>
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="/exercise/base/add">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     Add new exercise
                 </a>
