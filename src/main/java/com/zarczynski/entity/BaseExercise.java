@@ -13,7 +13,8 @@ public class BaseExercise {
     private Long id;
     @NotBlank
     private String name;
-    @ManyToMany
-    private List<MuscleGroup> muscleGroup;
+    @NotBlank
+    @ManyToOne
+    private MuscleGroup muscleGroup;
 
 }
