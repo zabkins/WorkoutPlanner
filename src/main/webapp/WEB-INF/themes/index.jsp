@@ -11,67 +11,15 @@
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Workout Planner</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar-->
-        </nav>
+        <jsp:include page="header.jsp"/>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Actions</div>
-                            <a class="nav-link" href="/home">
-                                <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                                Homepage
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Workout Plans</div>
-                            <a class="nav-link" href="/home">
-                                <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                                Current Workout Plan
-                            </a>
-                            <a class="nav-link" href="/home">
-                                <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                                All Workout Plans
-                            </a>
-                            <a class="nav-link" href="/home">
-                                <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                                Add Workout Plan
-                            </a>
-                            <a class="nav-link" href="/home">
-                                <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                                Edit Workout Plan
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Exercises</div>
-                            <a class="nav-link" href="/home">
-                                <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                                Add new exercise
-                            </a>
-                            <a class="nav-link" href="/home">
-                                <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                                Show all exercises
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+            <jsp:include page="sidenav.jsp"/>
             <div id="layoutSidenav_content">
                 <main>
 
-
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-center small">
-                            <div class="text-muted">Copyright &copy; Michał Żarczyński 2022 </div>
-                        </div>
-                    </div>
-                </footer>
+                <jsp:include page="footer.jsp"/>
             </div>
-
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/resources/js/scripts.js"></script>
