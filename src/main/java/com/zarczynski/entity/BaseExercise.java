@@ -14,6 +14,8 @@ public class BaseExercise {
     private Long id;
     @NotBlank(message = "{name.notblank}")
     private String name;
+    @Size(max = 255, message = "{description.size}")
+    private String description;
     @ManyToOne
     private MuscleGroup muscleGroup;
 
@@ -31,6 +33,14 @@ public class BaseExercise {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public MuscleGroup getMuscleGroup() {

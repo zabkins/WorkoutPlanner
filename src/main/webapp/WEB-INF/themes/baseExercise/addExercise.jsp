@@ -55,6 +55,17 @@
                     </div>
                   </div>
                   <div class="row">
+                    <div class="form-label">
+                      <h5 class="my-1">Description<span class="text-secondary">(optional)</span></h5>
+                    </div>
+                    <div class="row">
+                      <div class="form-label">
+                        <form:textarea path="description" cssClass="form-control" rows="3"/>
+                        <form:errors path="description" cssClass="alert-danger"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col mt-4 m-lg-2">
                       <div class="row">
                         <input type="submit" class="btn btn-dark text-white" value="Add"/>
@@ -76,7 +87,28 @@
                 <h3 class="text-center my-4 text-uppercase">List of exercises</h3>
               </div>
               <div class="card-body">
-
+                <div class="row my-1">
+                  <div class="col">
+                    <div class="card-title">
+                      <h6 class="text-center text-uppercase">Name</h6>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card-title">
+                      <h6 class="text-center text-uppercase">Muscle group</h6>
+                    </div>
+                  </div>
+                </div>
+                <c:forEach items="${allBaseExercisesSorted}" var="exercise">
+                  <div class="row">
+                    <div class="col">
+                      <p class="text-center text-black">${exercise.name}</p>
+                    </div>
+                    <div class="col">
+                      <p class="text-center text-black">${exercise.muscleGroup.name}</p>
+                    </div>
+                  </div>
+                </c:forEach>
               </div>
             </div>
           </div>

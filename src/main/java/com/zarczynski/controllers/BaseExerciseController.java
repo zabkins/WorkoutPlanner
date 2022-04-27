@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,24 +27,29 @@ public class BaseExerciseController {
         this.muscleGroupRepository = muscleGroupRepository;
     }
 
+    @ModelAttribute("muscleGroups")
+    public List<MuscleGroup> getAllMuscleGroups(){
+        return muscleGroupRepository.findAll();
+    }
+
     @GetMapping("/add")
     public String showAddForm(Model model){
         BaseExercise baseExercise = new BaseExercise();
-        List<MuscleGroup> muscleGroups = muscleGroupRepository.findAll();
+        List<BaseExercise> allBaseExercises = baseExerciseRepository.findAllOrderedByMuscleGroupName();
         model.addAttribute("baseExercise",baseExercise);
-        model.addAttribute("muscleGroups",muscleGroups);
+        model.addAttribute("allBaseExercisesSorted",allBaseExercises);
         return "/baseExercise/addExercise";
     }
 
     @PostMapping("/add")
     public String saveAddForm(Model model, @Valid BaseExercise baseExercise, BindingResult bindingResult){
+        List<BaseExercise> allBaseExercises = baseExerciseRepository.findAllOrderedByMuscleGroupName();
+        model.addAttribute("allBaseExercisesSorted",allBaseExercises);
         if(bindingResult.hasErrors()){
-            List<MuscleGroup> muscleGroups = muscleGroupRepository.findAll();
-            model.addAttribute("muscleGroups",muscleGroups);
             return "/baseExercise/addExercise";
         }
         baseExerciseRepository.save(baseExercise);
-        return "/baseExercise/list";
+        return "redirect:/exercise/base/add";
     }
 
 
