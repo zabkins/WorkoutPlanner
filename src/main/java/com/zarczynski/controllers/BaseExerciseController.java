@@ -36,8 +36,10 @@ public class BaseExerciseController {
     }
 
     @PostMapping("/add")
-    public String saveAddForm(@Valid BaseExercise baseExercise, BindingResult bindingResult){
+    public String saveAddForm(Model model, @Valid BaseExercise baseExercise, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
+            List<MuscleGroup> muscleGroups = muscleGroupRepository.findAll();
+            model.addAttribute("muscleGroups",muscleGroups);
             return "/baseExercise/addExercise";
         }
         baseExerciseRepository.save(baseExercise);

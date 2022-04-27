@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <html>
@@ -18,14 +19,67 @@
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid">
-        <div class="row">
-          <div class="d-flex justify-content-center">
-            <h1 class="text-uppercase">Add new exercise</h1>
+        <div class="row justify-content-center my-4">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="text-center my-4 text-uppercase">Add new exercise</h3>
+              </div>
+              <div class="card-body">
+                <form:form modelAttribute="baseExercise" action="/exercise/base/add" method="post">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <div class="form-label">
+                          <h5 class="my-1 text-center">Exercise name</h5>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-label">
+                          <form:input path="name" cssClass="form-control justify-content-center"/>
+                          <form:errors path="name" cssClass="alert-danger"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="row">
+                        <div class="form-label">
+                          <h5 class="my-1 text-center">Muscle group</h5>
+                        </div>
+                        <div class="row">
+                          <div class="form-label">
+                            <form:select path="muscleGroup" items="${muscleGroups}" itemValue="id" itemLabel="name" cssClass="form-select justify-content-center"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col mt-4 m-lg-2">
+                      <div class="row">
+                        <input type="submit" class="btn btn-dark text-white" value="Add"/>
+                      </div>
+                    </div>
+                    <div class="col mt-4 m-lg-2">
+                      <div class="row">
+                        <a class="btn btn-dark" href="/home" role="button">Cancel</a>
+                      </div>
+                    </div>
+                  </div>
+                </form:form>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          TU BEDZIE FORMULARZ :)
-          <%-- TUTAJ SPRING FORM --%>
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="text-center my-4 text-uppercase">List of exercises</h3>
+              </div>
+              <div class="card-body">
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
