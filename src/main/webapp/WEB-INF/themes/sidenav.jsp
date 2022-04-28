@@ -37,7 +37,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     Add new exercise
                 </a>
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="/exercise/base/list">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     Show all exercises
                 </a>

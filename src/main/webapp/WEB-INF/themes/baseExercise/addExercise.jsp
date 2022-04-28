@@ -84,7 +84,27 @@
           <div class="col">
             <div class="card">
               <div class="card-header">
-                <h3 class="text-center my-4 text-uppercase">List of exercises</h3>
+                <div class="row">
+                  <div class="col">
+
+                  </div>
+                  <div class="col">
+                    <h3 class="text-center my-4 text-uppercase">List of exercises</h3>
+                  </div>
+                  <div class="col">
+                    <div class="dropdown my-4">
+                      <button class="form-select" type="button" id="muscleGroupDropDown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter By Muscle Group
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="muscleGroupDropDown">
+                        <li><a class="dropdown-item" href="/exercise/base/add">All</a></li>
+                        <c:forEach items="${muscleGroups}" var="muscleGroup">
+                          <li><a class="dropdown-item" href="/exercise/base/add/${muscleGroup.id}">${muscleGroup.name}</a></li>
+                        </c:forEach>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="card-body">
                 <div class="row my-1">
@@ -99,7 +119,7 @@
                     </div>
                   </div>
                 </div>
-                <c:forEach items="${allBaseExercisesSorted}" var="exercise">
+                <c:forEach items="${baseExercisesToBeShown}" var="exercise">
                   <div class="row">
                     <div class="col">
                       <p class="text-center text-black">${exercise.name}</p>
@@ -112,6 +132,37 @@
               </div>
             </div>
           </div>
+<%--          <div class="col">--%>
+<%--            <div class="card">--%>
+<%--              <div class="card-header">--%>
+<%--                <h3 class="text-center my-4 text-uppercase">List of exercises</h3>--%>
+<%--              </div>--%>
+<%--              <div class="card-body">--%>
+<%--                <div class="row my-1">--%>
+<%--                  <div class="col">--%>
+<%--                    <div class="card-title">--%>
+<%--                      <h6 class="text-center text-uppercase">Name</h6>--%>
+<%--                    </div>--%>
+<%--                  </div>--%>
+<%--                  <div class="col">--%>
+<%--                    <div class="card-title">--%>
+<%--                      <h6 class="text-center text-uppercase">Muscle group</h6>--%>
+<%--                    </div>--%>
+<%--                  </div>--%>
+<%--                </div>--%>
+<%--                <c:forEach items="${baseExercisesToBeShown}" var="exercise">--%>
+<%--                  <div class="row">--%>
+<%--                    <div class="col">--%>
+<%--                      <p class="text-center text-black">${exercise.name}</p>--%>
+<%--                    </div>--%>
+<%--                    <div class="col">--%>
+<%--                      <p class="text-center text-black">${exercise.muscleGroup.name}</p>--%>
+<%--                    </div>--%>
+<%--                  </div>--%>
+<%--                </c:forEach>--%>
+<%--              </div>--%>
+<%--            </div>--%>
+<%--          </div>--%>
         </div>
       </div>
     </main>
