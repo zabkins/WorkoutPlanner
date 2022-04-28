@@ -1,4 +1,4 @@
-package com.zarczynski.entity;
+package com.zarczynski.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

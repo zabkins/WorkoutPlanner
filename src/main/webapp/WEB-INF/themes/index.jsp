@@ -17,47 +17,73 @@
             <jsp:include page="sidenav.jsp"/>
             <div id="layoutSidenav_content">
                 <main>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="d-flex justify-content-center">
-                            <h1 class="text-uppercase">Current workout plan's name</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="text-secondary">Current Workout Plan</h5>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <%-- TU PETLA W ZALEZNOSCI OD ILOSCI DNI TRENINGOWYCH --%>
-                        <c:forEach begin="1" end="5" varStatus="loop">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Training day ${loop.index}</h3>
+                    <c:choose>
+                        <c:when test="${empty activeWorkoutPlan}">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="row my-2">
+                                        <div class="d-flex justify-content-center">
+                                            <h1 class="text-uppercase">No workout plans added yet</h1>
+                                        </div>
                                     </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Exercise 1</li>
-                                        <li class="list-group-item">Exercise 2</li>
-                                        <li class="list-group-item">Exercise 3</li>
-                                        <li class="list-group-item">Exercise 4</li>
-                                        <li class="list-group-item">Exercise 5</li>
-                                        <li class="list-group-item">Exercise 6</li>
-                                        <li class="list-group-item">Exercise 7</li>
-                                    </ul>
-                                    <div class="card-body">
-                                        <button type="button" class="btn btn-dark">
-                                            <a href="#" class="text-white">Save results</a>
-                                        </button>
-                                        <button type="button" class="btn btn-dark">
-                                            <a href="#" class="text-white">Modify Exercises</a>
-                                        </button>
+                                    <div class="row">
+                                        <div class="d-flex justify-content-center">
+                                            <h5 class="text-secondary">Current Workout Plan</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <p class="h4 text-center">
+                                            You haven't added any workout plans yet. Add a new one by choosing correct option
+                                            from the list in the sidebar.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </c:forEach>
-                    </div>
-                </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="d-flex justify-content-center">
+                                        <h1 class="text-uppercase">Current workout plan's name</h1>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="d-flex justify-content-center">
+                                        <h5 class="text-secondary">Current Workout Plan</h5>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                        <%-- TU PETLA W ZALEZNOSCI OD ILOSCI DNI TRENINGOWYCH --%>
+                                    <c:forEach begin="1" end="5" varStatus="loop">
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Training day ${loop.index}</h3>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Exercise 1</li>
+                                                    <li class="list-group-item">Exercise 2</li>
+                                                    <li class="list-group-item">Exercise 3</li>
+                                                    <li class="list-group-item">Exercise 4</li>
+                                                    <li class="list-group-item">Exercise 5</li>
+                                                    <li class="list-group-item">Exercise 6</li>
+                                                    <li class="list-group-item">Exercise 7</li>
+                                                </ul>
+                                                <div class="card-body">
+                                                    <button type="button" class="btn btn-dark">
+                                                        <a href="#" class="text-white">Save results</a>
+                                                    </button>
+                                                    <button type="button" class="btn btn-dark">
+                                                        <a href="#" class="text-white">Modify Exercises</a>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </main>
                 <jsp:include page="footer.jsp"/>
             </div>

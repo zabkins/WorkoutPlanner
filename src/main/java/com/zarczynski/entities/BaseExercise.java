@@ -1,9 +1,8 @@
-package com.zarczynski.entity;
+package com.zarczynski.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 @Table(name = "base_exercise")

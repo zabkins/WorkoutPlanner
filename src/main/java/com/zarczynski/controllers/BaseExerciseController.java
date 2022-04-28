@@ -1,9 +1,9 @@
 package com.zarczynski.controllers;
 
-import com.zarczynski.entity.BaseExercise;
-import com.zarczynski.entity.MuscleGroup;
-import com.zarczynski.repository.BaseExerciseRepository;
-import com.zarczynski.repository.MuscleGroupRepository;
+import com.zarczynski.entities.BaseExercise;
+import com.zarczynski.entities.MuscleGroup;
+import com.zarczynski.repositories.BaseExerciseRepository;
+import com.zarczynski.repositories.MuscleGroupRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

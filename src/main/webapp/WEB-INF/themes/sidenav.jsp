@@ -24,9 +24,9 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     All Workout Plans
                 </a>
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="/plan/add">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                    Add Workout Plan
+                    Add New Workout Plan
                 </a>
                 <a class="nav-link" href="/home">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
