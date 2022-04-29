@@ -132,37 +132,6 @@
               </div>
             </div>
           </div>
-<%--          <div class="col">--%>
-<%--            <div class="card">--%>
-<%--              <div class="card-header">--%>
-<%--                <h3 class="text-center my-4 text-uppercase">List of exercises</h3>--%>
-<%--              </div>--%>
-<%--              <div class="card-body">--%>
-<%--                <div class="row my-1">--%>
-<%--                  <div class="col">--%>
-<%--                    <div class="card-title">--%>
-<%--                      <h6 class="text-center text-uppercase">Name</h6>--%>
-<%--                    </div>--%>
-<%--                  </div>--%>
-<%--                  <div class="col">--%>
-<%--                    <div class="card-title">--%>
-<%--                      <h6 class="text-center text-uppercase">Muscle group</h6>--%>
-<%--                    </div>--%>
-<%--                  </div>--%>
-<%--                </div>--%>
-<%--                <c:forEach items="${baseExercisesToBeShown}" var="exercise">--%>
-<%--                  <div class="row">--%>
-<%--                    <div class="col">--%>
-<%--                      <p class="text-center text-black">${exercise.name}</p>--%>
-<%--                    </div>--%>
-<%--                    <div class="col">--%>
-<%--                      <p class="text-center text-black">${exercise.muscleGroup.name}</p>--%>
-<%--                    </div>--%>
-<%--                  </div>--%>
-<%--                </c:forEach>--%>
-<%--              </div>--%>
-<%--            </div>--%>
-<%--          </div>--%>
         </div>
       </div>
     </main>

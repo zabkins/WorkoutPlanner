@@ -11,9 +11,9 @@ public class BaseExercise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "{name.notblank}")
+    @NotBlank(message = "{baseExerciseName.notblank}")
     private String name;
-    @Size(max = 255, message = "{description.size}")
+    @Size(max = 255, message = "{baseExerciseDescription.size}")
     private String description;
     @ManyToOne
     private MuscleGroup muscleGroup;

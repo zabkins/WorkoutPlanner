@@ -11,7 +11,7 @@ public class WorkoutPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @NotBlank(message = "{workoutPlanName.notblank}")
     private String name;
     @OneToMany
     private List<TrainingDay> trainingDays;
