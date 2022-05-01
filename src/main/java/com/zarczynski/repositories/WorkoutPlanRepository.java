@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 public interface WorkoutPlanRepository extends JpaRepository<WorkoutPlan, Long> {
@@ -13,6 +14,7 @@ public interface WorkoutPlanRepository extends JpaRepository<WorkoutPlan, Long> 
     Optional<WorkoutPlan> getActiveWorkoutPlan();
 
     @Modifying(flushAutomatically = true)
+    @Transactional
     @Query("UPDATE WorkoutPlan w SET w.active = false WHERE w.active = true")
-    void setAllWorkoutPlansInactive();
+    void setAllActiveWorkoutPlansInactive();
 }

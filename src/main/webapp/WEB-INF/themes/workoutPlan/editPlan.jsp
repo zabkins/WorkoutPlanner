@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <html>
@@ -23,7 +24,7 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="text-center my-4 text-uppercase">${workoutPlan.name}</h3>
+                                <h3 class="text-center my-4 text-uppercase">${workoutPlanToEdit.name}</h3>
                             </div>
                         </div>
                     </div>
@@ -31,12 +32,40 @@
                 <div class="row justify-content-center my-4">
                     <div class="col">
                         <div class="card">
-                            Tu dodawanie dni treningowych
+                                <div class="card-header">
+                                    <h5 class="text-center my-2 text-uppercase">Add training day</h5>
+                                </div>
+                            <form:form modelAttribute="trainingDay" action="/plan/edit" method="post">
+                            <div class="row my-2">
+                                    <div class="col">
+                                                tutaj dodawanie, pole z nazwa
+                                    </div>
+                                    <div class="col">
+                                        tu bedzie guzik
+                                    </div>
+                            </div>
+                            </form:form>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
-                            Tu wyswietlanie dni treningowych
+                            <div class="card-header">
+                                <h5 class="text-center my-2 text-uppercase">Training days</h5>
+                            </div>
+                            <c:choose>
+                                <c:when test="${empty workoutPlanToEdit.trainingDays}">
+                                    <div class="row">
+                                        <span class="h6 my-2 mx-2 text-wrap">You haven't added any training days in this
+                                            plan yet. Add new one by filling out data on the left side of this site.
+                                        </span>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <f:forEach items="${workoutPlanToEdit.trainingDays}" var="tDay">
+
+                                    </f:forEach>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>
