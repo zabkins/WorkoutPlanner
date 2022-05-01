@@ -51,6 +51,8 @@ public class WorkoutPlanController {
     public String showWorkoutEditForm(Model model, @PathVariable Long id){
         Optional<WorkoutPlan> workoutPlanToEditOpt = workoutPlanRepository.findById(id);
         WorkoutPlan workoutPlanToEdit = workoutPlanToEditOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        TrainingDay trainingDay = new TrainingDay();
+        model.addAttribute("trainingDay",trainingDay);
         model.addAttribute("workoutPlanToEdit",workoutPlanToEdit);
         return "/workoutPlan/editPlan";
     }

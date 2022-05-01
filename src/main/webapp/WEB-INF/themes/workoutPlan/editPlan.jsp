@@ -35,13 +35,27 @@
                                 <div class="card-header">
                                     <h5 class="text-center my-2 text-uppercase">Add training day</h5>
                                 </div>
-                            <form:form modelAttribute="trainingDay" action="/plan/edit" method="post">
+                            <form:form modelAttribute="trainingDay" action="?" method="post">
                             <div class="row my-2">
                                     <div class="col">
-                                                tutaj dodawanie, pole z nazwa
+                                        <div class="row my-2 d-flex justify-content-center">
+                                            <div class="form-label">
+                                                <h5 class="my-1 text-center text-uppercase">Name</h5>
+                                            </div>
+                                        </div>
+                                        <div class="row my-2 mx-2">
+                                            <div class="form-label">
+                                                <form:input path="name" cssClass="form-control"/>
+                                                <form:errors path="name" cssClass="alert-danger"/>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        tu bedzie guzik
+                                    <div class="col d-flex justify-content-center">
+                                        <div class="row my-4">
+                                            <div class="col d-flex justify-content-center">
+                                                <input type="submit" class="btn btn-dark text-white" value="Add Training day"/>
+                                            </div>
+                                        </div>
                                     </div>
                             </div>
                             </form:form>
@@ -54,8 +68,8 @@
                             </div>
                             <c:choose>
                                 <c:when test="${empty workoutPlanToEdit.trainingDays}">
-                                    <div class="row">
-                                        <span class="h6 my-2 mx-2 text-wrap">You haven't added any training days in this
+                                    <div class="row mx-2">
+                                        <span class="h6 my-2">You haven't added any training days in this
                                             plan yet. Add new one by filling out data on the left side of this site.
                                         </span>
                                     </div>
