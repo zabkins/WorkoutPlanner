@@ -7,13 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
@@ -41,9 +39,7 @@ public class WorkoutPlanController {
         workoutPlanRepository.setAllActiveWorkoutPlansInactive();
         workoutPlan.setActive(true);
         workoutPlanRepository.save(workoutPlan);
-        TrainingDay trainingDay = new TrainingDay();
         model.addAttribute("workoutPlanToEdit",workoutPlan);
-        model.addAttribute("trainingDay",trainingDay);
         return "/workoutPlan/editPlan";
     }
 
@@ -51,17 +47,10 @@ public class WorkoutPlanController {
     public String showWorkoutEditForm(Model model, @PathVariable Long id){
         Optional<WorkoutPlan> workoutPlanToEditOpt = workoutPlanRepository.findById(id);
         WorkoutPlan workoutPlanToEdit = workoutPlanToEditOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        TrainingDay trainingDay = new TrainingDay();
-        model.addAttribute("trainingDay",trainingDay);
         model.addAttribute("workoutPlanToEdit",workoutPlanToEdit);
         return "/workoutPlan/editPlan";
     }
 
 
-    @PostMapping("/edit")
-    public String saveWorkoutEditForm(){
-
-        return "/workoutPlan/editPlan";
-    }
 
 }
