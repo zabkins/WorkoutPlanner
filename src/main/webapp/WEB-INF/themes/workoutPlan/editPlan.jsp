@@ -65,8 +65,8 @@
 <%--                                                        <h3 class="card-title">${tday.name}</h3>--%>
 <%--                                                    </div>--%>
                                                     <ul class="list-group list-group-flush">
-                                                    <c:forEach items="${tday.wholeExercises}" var="exercise">
-                                                        <li class="list-group-item">${exercise.baseExercise.name}</li>
+                                                    <c:forEach items="${tday.exercises}" var="exercise">
+                                                        <li class="list-group-item">${exercise.name}</li>
                                                     </c:forEach>
                                                     </ul>
 <%--                                                    <div class="card-body">--%>

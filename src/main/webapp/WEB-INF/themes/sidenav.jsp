@@ -33,11 +33,11 @@
                     Edit Workout Plan
                 </a>
                 <div class="sb-sidenav-menu-heading">Exercises</div>
-                <a class="nav-link" href="/exercise/base/add">
+                <a class="nav-link" href="/exercise/add">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     Add new exercise
                 </a>
-                <a class="nav-link" href="/exercise/base/list">
+                <a class="nav-link" href="/exercise/list">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     Show all exercises
                 </a>

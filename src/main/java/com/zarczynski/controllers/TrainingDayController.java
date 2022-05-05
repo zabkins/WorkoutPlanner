@@ -75,5 +75,5 @@ public class TrainingDayController {
     //      tu chyba musialbym uzyc JavaScript zeby to jakos dynamicznie wyswietlac i dodawac
     // Wyglad tak jak w EditPlan.jsp
 
-    //Albo usunac WholeExercise i ExerciseSet i po prostu zrobic Training day - List<BaseExercise>???
+    //Albo usunac WholeExercise i ExerciseSet i po prostu zrobic Training day - List<Exercise>???
 }

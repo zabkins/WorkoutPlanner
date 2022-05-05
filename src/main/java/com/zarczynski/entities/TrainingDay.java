@@ -14,7 +14,7 @@ public class TrainingDay {
     @NotBlank(message = "{trainingDayName.notblank}")
     private String name;
     @OneToMany
-    private List<WholeExercise> wholeExercises;
+    private List<Exercise> exercises;
 
     public Long getId() {
         return id;
@@ -32,11 +32,11 @@ public class TrainingDay {
         this.name = name;
     }
 
-    public List<WholeExercise> getWholeExercises() {
-        return wholeExercises;
+    public List<Exercise> getBaseExercises() {
+        return exercises;
     }
 
-    public void setWholeExercises(List<WholeExercise> wholeExercises) {
-        this.wholeExercises = wholeExercises;
+    public void setBaseExercises(List<Exercise> exercises) {
+        this.exercises = exercises;
     }
 }

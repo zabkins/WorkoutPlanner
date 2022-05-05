@@ -26,7 +26,7 @@
                 <h3 class="text-center my-4 text-uppercase">Add new exercise</h3>
               </div>
               <div class="card-body">
-                <form:form modelAttribute="baseExercise" action="/exercise/base/add" method="post">
+                <form:form modelAttribute="exercise" action="/exercise/add" method="post">
                   <div class="row">
                     <div class="col">
                       <div class="row">
@@ -97,9 +97,9 @@
                         Filter By Muscle Group
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="muscleGroupDropDown">
-                        <li><a class="dropdown-item" href="/exercise/base/add">All</a></li>
+                        <li><a class="dropdown-item" href="/exercise/add">All</a></li>
                         <c:forEach items="${muscleGroups}" var="muscleGroup">
-                          <li><a class="dropdown-item" href="/exercise/base/add/${muscleGroup.id}">${muscleGroup.name}</a></li>
+                          <li><a class="dropdown-item" href="/exercise/add/${muscleGroup.id}">${muscleGroup.name}</a></li>
                         </c:forEach>
                       </ul>
                     </div>
@@ -119,7 +119,7 @@
                     </div>
                   </div>
                 </div>
-                <c:forEach items="${baseExercisesToBeShown}" var="exercise">
+                <c:forEach items="${exercisesToBeShown}" var="exercise">
                   <div class="row">
                     <div class="col">
                       <p class="text-center text-black">${exercise.name}</p>

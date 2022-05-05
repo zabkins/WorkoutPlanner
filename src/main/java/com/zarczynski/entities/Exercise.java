@@ -5,15 +5,15 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "base_exercise")
-public class BaseExercise {
+@Table(name = "exercise")
+public class Exercise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "{baseExerciseName.notblank}")
+    @NotBlank(message = "{exerciseName.notblank}")
     private String name;
-    @Size(max = 255, message = "{baseExerciseDescription.size}")
+    @Size(max = 255, message = "{exerciseDescription.size}")
     private String description;
     @ManyToOne
     private MuscleGroup muscleGroup;

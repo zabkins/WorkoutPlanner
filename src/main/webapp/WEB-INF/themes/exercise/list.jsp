@@ -25,46 +25,58 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col">
+
                   </div>
                   <div class="col">
-                    <h3 class="text-center my-4 text-uppercase">Exercise description</h3>
+                    <h3 class="text-center my-4 text-uppercase">List of exercises</h3>
                   </div>
-                  <div class="col align-items-end">
-                      <a class="btn btn-dark my-4" href="/exercise/base/list" role="button">Back to list</a>
+                  <div class="col">
+                    <div class="dropdown my-4">
+                      <button class="form-select" type="button" id="muscleGroupDropDown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter By Muscle Group
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="muscleGroupDropDown">
+                        <li><a class="dropdown-item" href="/exercise/list">All</a></li>
+                        <c:forEach items="${muscleGroups}" var="muscleGroup">
+                          <li><a class="dropdown-item" href="/exercise/list/${muscleGroup.id}">${muscleGroup.name}</a></li>
+                        </c:forEach>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <div class="row mt-3">
+                <div class="row my-1">
                   <div class="col">
-                    <div class="row my-2">
-                        <div class="col card-title">
-                          <h6 class="text-center text-uppercase">Name</h6>
-                        </div>
-                        <div class="col">
-                          <p>${baseExerciseToDetail.name}</p>
-                        </div>
-                    </div>
-                    <div class="row my-2">
-                      <div class="col card-title">
-                        <h6 class="text-center text-uppercase">Muscle group</h6>
-                      </div>
-                      <div class="col">
-                        <p>${baseExerciseToDetail.muscleGroup.name}</p>
-                      </div>
+                    <div class="card-title">
+                      <h6 class="text-center text-uppercase">Name</h6>
                     </div>
                   </div>
                   <div class="col">
-                    <div class="row mt-2">
-                      <div class="card-title justify-content-start">
-                        <h6 class="text-uppercase">Description</h6>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <p class="text-break">${baseExerciseToDetail.description}</p>
+                    <div class="card-title">
+                      <h6 class="text-center text-uppercase">Muscle group</h6>
                     </div>
                   </div>
                 </div>
+                <c:forEach items="${exercisesToBeShown}" var="exercise">
+                  <div class="row">
+                    <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <p class="text-center text-black">${exercise.name}</p>
+                        </div>
+                        <div class="col">
+                          <div class="text-center">
+                            <a href="/exercise/details/${exercise.id}" class="text-secondary">Show description</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <p class="text-center text-black">${exercise.muscleGroup.name}</p>
+                    </div>
+                  </div>
+                </c:forEach>
               </div>
             </div>
           </div>
