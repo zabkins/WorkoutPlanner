@@ -23,23 +23,99 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="text-center my-4 text-uppercase">Training day - ${trainingDayToEdit.name}</h3>
+                                <div class="row">
+                                    <div class="col-2">
+
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="text-center my-4 text-uppercase">${trainingDayToEdit.name}</h3>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-center align-items-end">
+                                            <a class="btn btn-dark text-decoration-none text-white my-4" href="/tday/redirect/${trainingDayToEdit.id}" role="button">Back to plan</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center my-4">
-                    <div class="col-3">
+                    <div class="col mx-4">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="text-center my-2 text-uppercase">Add new exercise</h5>
                             </div>
+                            <div class="card-body">
+                                <form:form modelAttribute="trainingDayToEdit" action="/tday/edit/${trainingDayToEdit.id}" method="post">
+                                    <div class="row">
+                                        <div class="col mx-2">
+                                            <div class="row my-2">
+                                                <div class="form-label">
+                                                    <h5 class="my-1 text-center">Select exercise</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row my-2">
+                                                <div class="form-label">
+                                                    <form:hidden path="id"/>
+                                                    <form:hidden path="name"/>
+                                                    <form:select path="exercises" items="${exercises}" itemValue="id" itemLabel="name" multiple="false" cssClass="form-select"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col mx-2 d-flex justify-content-center">
+                                            <div class="row my-2">
+                                                <input type="submit" class="btn btn-dark text-white my-3" value="Add"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form:form>
+                            </div>
+                            <div class="card-body">
+                                tutaj dodac przekierowanie do dodawania cwiczen (jakby nie bylo na liscie)
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9">
+                    <div class="col mx-4">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="text-center my-2 text-uppercase">Exercises</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row my-1">
+                                    <div class="col-2">
+                                        <div class="card-title">
+                                            <h6 class="text-center">No.</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="card-title">
+                                            <h6 class="text-center text-uppercase">Name</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="card-title">
+                                            <h6 class="text-center text-uppercase">Muscle group</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+
+                                    </div>
+                                </div>
+                                <c:forEach items="${trainingDayToEdit.exercises}" var="exercise" varStatus="loop">
+                                    <div class="row my-1">
+                                        <div class="col-2">
+                                            <p class="text-center text-black">${loop.count}</p>
+                                        </div>
+                                        <div class="col-5">
+                                            <p class="text-center text-black">${exercise.name}</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="text-center text-black">${exercise.muscleGroup.name}</p>
+                                        </div>
+                                        <div class="col-1">
+                                                <a class="btn btn-danger text-decoration-none" href="/tday/delete/${trainingDayToEdit.id}/${exercise.id}" role="button">X</a>
+                                        </div>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,9 @@
 package com.zarczynski.controllers;
 
+import com.zarczynski.entities.Exercise;
 import com.zarczynski.entities.TrainingDay;
 import com.zarczynski.entities.WorkoutPlan;
+import com.zarczynski.repositories.ExerciseRepository;
 import com.zarczynski.repositories.TrainingDayRepository;
 import com.zarczynski.repositories.WorkoutPlanRepository;
 import org.springframework.http.HttpStatus;
@@ -22,10 +24,17 @@ public class TrainingDayController {
 
     private final TrainingDayRepository trainingDayRepository;
     private final WorkoutPlanRepository workoutPlanRepository;
+    private final ExerciseRepository exerciseRepository;
 
-    public TrainingDayController(TrainingDayRepository trainingDayRepository, WorkoutPlanRepository workoutPlanRepository) {
+    public TrainingDayController(TrainingDayRepository trainingDayRepository, WorkoutPlanRepository workoutPlanRepository, ExerciseRepository exerciseRepository) {
         this.trainingDayRepository = trainingDayRepository;
         this.workoutPlanRepository = workoutPlanRepository;
+        this.exerciseRepository = exerciseRepository;
+    }
+
+    @ModelAttribute("exercises")
+    public List<Exercise> getAllExercises(){
+        return exerciseRepository.findAllOrderedByName();
     }
 
     @GetMapping("/add/{workoutPlanId}")
@@ -66,14 +75,32 @@ public class TrainingDayController {
         return "/trainingDay/edit";
     }
 
-    /// DZIALA , CZYLI TU MOGE ZROBIC PRZEKIROWANIE TO EDYCJI DNIA TRENINGOWEGO - tam bede dodawal cwiczenia itp.
-    /// DO przemyslenia czy sprobowac zrobic formularz, z dodawaniem dynamicznym serii (moze zmodyfikowac exerciseSet i dodac relacje
-    //dwustronna czyli zeby odrazu przypisana przy tworzeniu byla do WholeExercise?
+    @PostMapping("/edit/{id}")
+    public String saveEditForm(Model model,@PathVariable Long id, TrainingDay trainingDay){
+        Optional<TrainingDay> trainingDayToEditOpt = trainingDayRepository.findById(id);
+        TrainingDay trainingDayToEdit = trainingDayToEditOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        List<Exercise> existingExercises = trainingDayToEdit.getExercises();
+        existingExercises.addAll(trainingDay.getExercises());
+        trainingDay.setExercises(existingExercises);
+        trainingDayRepository.save(trainingDay);
+        model.addAttribute("trainingDayToEdit",trainingDay);
+        return "/trainingDay/edit";
+    }
 
-    //    @ManyToOne
-    //    private WholeExercise wholeExercise;  <----- to dodac w ExerciseSet
-    //      tu chyba musialbym uzyc JavaScript zeby to jakos dynamicznie wyswietlac i dodawac
-    // Wyglad tak jak w EditPlan.jsp
+    @GetMapping("/delete/{trainingDayId}/{exerciseId}")
+    public String deleteExercise(Model model, @PathVariable Long trainingDayId, @PathVariable Long exerciseId){
+        Optional<TrainingDay> trainingDayToEditOpt = trainingDayRepository.findById(trainingDayId);
+        TrainingDay trainingDayToEdit = trainingDayToEditOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        trainingDayRepository.deleteExerciseFromTrainingDayById(trainingDayId,exerciseId);
+        model.addAttribute("trainingDayToEdit",trainingDayToEdit);
+        return "/trainingDay/edit";
+    }
 
-    //Albo usunac WholeExercise i ExerciseSet i po prostu zrobic Training day - List<Exercise>???
+    @GetMapping("/redirect/{id}")
+    public String redirectBackToPlan(@PathVariable Long id){
+        Long workoutPlanId = workoutPlanRepository.getWorkoutPlanIdByTrainingDayId(id);
+        return String.format("redirect:/plan/edit/%d",workoutPlanId);
+    }
+
+
 }

@@ -32,13 +32,24 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="text-center my-2 text-uppercase">Training days</h5>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-2">
+
+                                    </div>
+                                    <div class="col">
+                                        <h5 class="text-center my-2 text-uppercase">Training days</h5>
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-center align-items-end">
+                                        <a class="btn btn-dark text-decoration-none text-white text-capitalize my-2"
+                                           href="/tday/add/${workoutPlanToEdit.id}" role="button">add training day</a>
+                                    </div>
+                                </div>
                             </div>
                             <c:choose>
                                 <c:when test="${not empty workoutPlanToEdit.trainingDays}">
-                                    <div class="row-cols-3 my-1 d-flex justify-content-center">
-                                            <%-- TU PETLA W ZALEZNOSCI OD ILOSCI DNI TRENINGOWYCH --%>
-                                        <c:forEach items="${workoutPlanToEdit.trainingDays}" var="tday" varStatus="loop">
+                                    <div class="row-cols-3 my-2 d-flex justify-content-center">
+                                        <c:forEach items="${workoutPlanToEdit.trainingDays}" var="tday"
+                                                   varStatus="loop">
                                             <c:if test="${loop.count % 3 == 0}">
                                                 <div class="w-100"></div>
                                             </c:if>
@@ -46,37 +57,25 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="row d-flex align-items-center">
-                                                            <div class="col-7">
+                                                            <div class="col-2">
+                                                                <a class="btn btn-dark text-decoration-none text-white"
+                                                                   href="/tday/edit/${tday.id}" role="button">Edit</a>
+                                                            </div>
+                                                            <div class="col-8 text-center">
                                                                 <h3 class="card-title">${tday.name}</h3>
                                                             </div>
                                                             <div class="col-2">
-                                                                <button type="button" class="btn btn-dark">
-                                                                    <a href="#" class="text-white">Edit</a>
-                                                                </button>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <button type="button" class="btn btn-dark">
-                                                                    <a href="#" class="text-white">Save results</a>
-                                                                </button>
+                                                                <a class="btn btn-danger text-decoration-none"
+                                                                   href="#" role="button">Delete</a>
                                                             </div>
                                                         </div>
                                                     </div>
-<%--                                                    <div class="card-body">--%>
-<%--                                                        <h3 class="card-title">${tday.name}</h3>--%>
-<%--                                                    </div>--%>
                                                     <ul class="list-group list-group-flush">
-                                                    <c:forEach items="${tday.exercises}" var="exercise">
-                                                        <li class="list-group-item">${exercise.name}</li>
-                                                    </c:forEach>
+                                                        <li class="list-group-item text-center"><b>EXERCISES</b></li>
+                                                        <c:forEach items="${tday.exercises}" var="exercise">
+                                                            <li class="list-group-item text-center">${exercise.name}</li>
+                                                        </c:forEach>
                                                     </ul>
-<%--                                                    <div class="card-body">--%>
-<%--                                                        <button type="button" class="btn btn-dark">--%>
-<%--                                                            <a href="#" class="text-white">Save results</a>--%>
-<%--                                                        </button>--%>
-<%--                                                        <button type="button" class="btn btn-dark">--%>
-<%--                                                            <a href="#" class="text-white">Modify Exercises</a>--%>
-<%--                                                        </button>--%>
-<%--                                                    </div>--%>
                                                 </div>
                                             </div>
                                         </c:forEach>
@@ -96,7 +95,8 @@
                                         <div class="col">
                                             <div class="col d-flex justify-content-center">
                                                 <button type="button" class="btn btn-dark">
-                                                    <a href="/tday/add/${workoutPlanToEdit.id}" class="text-white">Add Training Day</a>
+                                                    <a href="/tday/add/${workoutPlanToEdit.id}" class="text-white">Add
+                                                        Training Day</a>
                                                 </button>
                                             </div>
                                         </div>

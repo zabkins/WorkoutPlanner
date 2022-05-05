@@ -15,6 +15,7 @@ public class WorkoutPlan {
     private String name;
     @OneToMany
     private List<TrainingDay> trainingDays;
+
     private boolean active;
 
     public Long getId() {

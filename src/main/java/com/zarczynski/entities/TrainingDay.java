@@ -15,7 +15,6 @@ public class TrainingDay {
     private String name;
     @OneToMany
     private List<Exercise> exercises;
-
     public Long getId() {
         return id;
     }
@@ -32,11 +31,11 @@ public class TrainingDay {
         this.name = name;
     }
 
-    public List<Exercise> getBaseExercises() {
+    public List<Exercise> getExercises() {
         return exercises;
     }
 
-    public void setBaseExercises(List<Exercise> exercises) {
+    public void setExercises(List<Exercise> exercises) {
         this.exercises = exercises;
     }
 }
