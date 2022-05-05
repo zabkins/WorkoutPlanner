@@ -54,17 +54,26 @@ public class TrainingDayController {
         trainingDayList.add(trainingDay);
         workoutPlanToEdit.setTrainingDays(trainingDayList);
         workoutPlanRepository.save(workoutPlanToEdit);
-        /// DZIALA , CZYLI TU MOGE ZROBIC PRZEKIROWANIE TO EDYCJI DNIA TRENINGOWEGO - tam bede dodawal cwiczenia itp.
-        /// DO przemyslenia czy sprobowac zrobic formularz, z dodawaniem dynamicznym serii (moze zmodyfikowac exerciseSet i dodac relacje
-        //dwustronna czyli zeby odrazu przypisana przy tworzeniu byla do WholeExercise?
-
-        //    @ManyToOne
-        //    private WholeExercise wholeExercise;  <----- to dodac w ExerciseSet
-        //      tu chyba musialbym uzyc JavaScript zeby to jakos dynamicznie wyswietlac i dodawac
-        // Wyglad tak jak w EditPlan.jsp
-
-        //Albo usunac WholeExercise i ExerciseSet i po prostu zrobic Training day - List<BaseExercise>???
-        return String.format("redirect:/plan/edit/%d",workoutPlanToEdit.getId());
+        model.addAttribute("trainingDayToEdit",trainingDay);
+        return "/trainingDay/edit";
     }
 
+    @GetMapping("/edit/{id}")
+    public String showEditForm(Model model, @PathVariable Long id){
+        Optional<TrainingDay> trainingDayToEditOpt = trainingDayRepository.findById(id);
+        TrainingDay trainingDayToEdit = trainingDayToEditOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        model.addAttribute("trainingDayToEdit",trainingDayToEdit);
+        return "/trainingDay/edit";
+    }
+
+    /// DZIALA , CZYLI TU MOGE ZROBIC PRZEKIROWANIE TO EDYCJI DNIA TRENINGOWEGO - tam bede dodawal cwiczenia itp.
+    /// DO przemyslenia czy sprobowac zrobic formularz, z dodawaniem dynamicznym serii (moze zmodyfikowac exerciseSet i dodac relacje
+    //dwustronna czyli zeby odrazu przypisana przy tworzeniu byla do WholeExercise?
+
+    //    @ManyToOne
+    //    private WholeExercise wholeExercise;  <----- to dodac w ExerciseSet
+    //      tu chyba musialbym uzyc JavaScript zeby to jakos dynamicznie wyswietlac i dodawac
+    // Wyglad tak jak w EditPlan.jsp
+
+    //Albo usunac WholeExercise i ExerciseSet i po prostu zrobic Training day - List<BaseExercise>???
 }
