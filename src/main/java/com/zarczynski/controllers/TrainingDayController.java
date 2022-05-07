@@ -80,7 +80,9 @@ public class TrainingDayController {
         Optional<TrainingDay> trainingDayToEditOpt = trainingDayRepository.findById(id);
         TrainingDay trainingDayToEdit = trainingDayToEditOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         List<Exercise> existingExercises = trainingDayToEdit.getExercises();
-        existingExercises.addAll(trainingDay.getExercises());
+        if(!existingExercises.contains(trainingDay.getExercises().get(0))){
+            existingExercises.add(trainingDay.getExercises().get(0));
+        }
         trainingDay.setExercises(existingExercises);
         trainingDayRepository.save(trainingDay);
         model.addAttribute("trainingDayToEdit",trainingDay);
@@ -102,5 +104,21 @@ public class TrainingDayController {
         return String.format("redirect:/plan/edit/%d",workoutPlanId);
     }
 
+    @GetMapping("/edit/name/{id}")
+    public String showNameEditForm(Model model, @PathVariable Long id){
+        Optional<TrainingDay> trainingDayToEditOpt = trainingDayRepository.findById(id);
+        TrainingDay trainingDayToEdit = trainingDayToEditOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        model.addAttribute("trainingDayToEdit",trainingDayToEdit);
+        return "/trainingDay/editName";
+    }
+
+    @PostMapping("/edit/name")
+    public String saveNameEditForm(@Valid @ModelAttribute("trainingDayToEdit") TrainingDay trainingDay, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "/trainingDay/editName";
+        }
+        trainingDayRepository.save(trainingDay);
+        return String.format("redirect:/tday/edit/%d",trainingDay.getId());
+    }
 
 }

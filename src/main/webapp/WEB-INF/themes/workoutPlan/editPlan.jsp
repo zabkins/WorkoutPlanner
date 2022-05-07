@@ -47,14 +47,11 @@
                             </div>
                             <c:choose>
                                 <c:when test="${not empty workoutPlanToEdit.trainingDays}">
-                                    <div class="row-cols-3 my-2 d-flex justify-content-center">
+                                    <div class="row row-cols-3 d-flex justify-content-start">
                                         <c:forEach items="${workoutPlanToEdit.trainingDays}" var="tday"
                                                    varStatus="loop">
-                                            <c:if test="${loop.count % 3 == 0}">
-                                                <div class="w-100"></div>
-                                            </c:if>
-                                            <div class="col mx-1">
-                                                <div class="card">
+                                            <div class="col px-3">
+                                                <div class="card my-2">
                                                     <div class="card-body">
                                                         <div class="row d-flex align-items-center">
                                                             <div class="col-2">
@@ -66,7 +63,7 @@
                                                             </div>
                                                             <div class="col-2">
                                                                 <a class="btn btn-danger text-decoration-none"
-                                                                   href="#" role="button">Delete</a>
+                                                                   href="#" role="button" id="deleteDayBtn">Delete</a>
                                                             </div>
                                                         </div>
                                                     </div>

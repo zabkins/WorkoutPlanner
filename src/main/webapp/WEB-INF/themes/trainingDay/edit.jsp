@@ -20,18 +20,29 @@
         <main>
             <div class="container-fluid">
                 <div class="row justify-content-center my-4">
-                    <div class="col">
+                    <div class="col mx-2">
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-2">
-
+                                        <a class="btn btn-dark text-decoration-none text-white my-4"
+                                           href="/tday/edit/name/${trainingDayToEdit.id}"
+                                           role="button">
+                                            Edit name
+                                            <span class="sb-nav-link-icon"><i class="bi bi-pen"></i>
+                                            </span>
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-center my-4 text-uppercase">${trainingDayToEdit.name}</h3>
                                     </div>
-                                    <div class="col-2 d-flex justify-content-center align-items-end">
-                                            <a class="btn btn-dark text-decoration-none text-white my-4" href="/tday/redirect/${trainingDayToEdit.id}" role="button">Back to plan</a>
+                                    <div class="col-2 d-flex justify-content-end">
+                                        <a class="btn btn-dark text-decoration-none text-white my-4"
+                                           href="/tday/redirect/${trainingDayToEdit.id}" role="button">
+                                            Back to plan
+                                            <span class="sb-nav-link-icon"><i class="bi bi-back"></i>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -39,13 +50,14 @@
                     </div>
                 </div>
                 <div class="row justify-content-center my-4">
-                    <div class="col mx-4">
+                    <div class="col mx-2">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="text-center my-2 text-uppercase">Add new exercise</h5>
                             </div>
                             <div class="card-body">
-                                <form:form modelAttribute="trainingDayToEdit" action="/tday/edit/${trainingDayToEdit.id}" method="post">
+                                <form:form modelAttribute="trainingDayToEdit"
+                                           action="/tday/edit/${trainingDayToEdit.id}" method="post">
                                     <div class="row">
                                         <div class="col mx-2">
                                             <div class="row my-2">
@@ -57,24 +69,42 @@
                                                 <div class="form-label">
                                                     <form:hidden path="id"/>
                                                     <form:hidden path="name"/>
-                                                    <form:select path="exercises" items="${exercises}" itemValue="id" itemLabel="name" multiple="false" cssClass="form-select"/>
+                                                    <form:select path="exercises" items="${exercises}" itemValue="id"
+                                                                 itemLabel="name" multiple="false"
+                                                                 cssClass="form-select"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col mx-2 d-flex justify-content-center">
                                             <div class="row my-2">
-                                                <input type="submit" class="btn btn-dark text-white my-3" value="Add"/>
+                                                <input type="submit" class="btn btn-dark text-white my-3"
+                                                       value="Add to training day"/>
                                             </div>
                                         </div>
                                     </div>
                                 </form:form>
                             </div>
-                            <div class="card-body">
-                                tutaj dodac przekierowanie do dodawania cwiczen (jakby nie bylo na liscie)
+                            <div class="card-header">
+                                <div class="row my-4">
+                                    <div class="col">
+                                        <div class="form-label">
+                                            <h6>The List doesn't contain exercises you want to add? Add them by clicking
+                                                on the button</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex justify-content-center">
+                                        <a class="btn btn-dark text-decoration-none my-1" href="/exercise/add"
+                                           role="button">
+                                            Add new exercises
+                                            <span class="sb-nav-link-icon"><i class="bi bi-plus-square"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col mx-4">
+                    <div class="col mx-2">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="text-center my-2 text-uppercase">Exercises</h5>
@@ -112,7 +142,8 @@
                                             <p class="text-center text-black">${exercise.muscleGroup.name}</p>
                                         </div>
                                         <div class="col-1">
-                                                <a class="btn btn-danger text-decoration-none" href="/tday/delete/${trainingDayToEdit.id}/${exercise.id}" role="button">X</a>
+                                            <a class="btn btn-danger text-decoration-none"
+                                               href="/tday/delete/${trainingDayToEdit.id}/${exercise.id}" role="button">X</a>
                                         </div>
                                     </div>
                                 </c:forEach>

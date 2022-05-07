@@ -13,7 +13,7 @@ public class TrainingDay {
     private Long id;
     @NotBlank(message = "{trainingDayName.notblank}")
     private String name;
-    @OneToMany
+    @ManyToMany
     private List<Exercise> exercises;
     public Long getId() {
         return id;
