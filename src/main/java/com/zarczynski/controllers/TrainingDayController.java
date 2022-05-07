@@ -123,7 +123,10 @@ public class TrainingDayController {
 
     @GetMapping("/delete/{id}")
     public String deleteTrainingDayById(@PathVariable Long id){
-        return null;
+        Long workoutPlanId = workoutPlanRepository.getWorkoutPlanIdByTrainingDayId(id);
+        trainingDayRepository.deleteById(id);
+        //tu jakos z foreign key - cos z Cascade bedzie ( to samo w exercise list)
+        return String.format("redirect:/plan/edit/%d",workoutPlanId);
     }
 
 }
