@@ -80,4 +80,10 @@ public class ExerciseController {
         model.addAttribute("exerciseToDetail", exerciseToDetail);
         return "/exercise/exerciseDetails";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteExerciseById(@PathVariable Long id){
+        exerciseRepository.deleteById(id);
+        return "redirect:/exercise/list";
+    }
 }

@@ -18,28 +18,28 @@
                 <div class="sb-sidenav-menu-heading">Workout Plans</div>
                 <a class="nav-link" href="/home">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                    Current Workout Plan
+                    View Active Plan
+                </a>
+                <a class="nav-link" href="/home">
+                    <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
+                    Edit Active Plan
+                </a>
+                <a class="nav-link" href="/plan/add">
+                    <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
+                    Add New Plan
                 </a>
                 <a class="nav-link" href="/home">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     All Workout Plans
                 </a>
-                <a class="nav-link" href="/plan/add">
-                    <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                    Add New Workout Plan
-                </a>
-                <a class="nav-link" href="/home">
-                    <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                    Edit Workout Plan
-                </a>
                 <div class="sb-sidenav-menu-heading">Exercises</div>
                 <a class="nav-link" href="/exercise/add">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                    Add new exercise
+                    Add Exercise
                 </a>
                 <a class="nav-link" href="/exercise/list">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
-                    Show all exercises
+                    All Exercises
                 </a>
             </div>
         </div>

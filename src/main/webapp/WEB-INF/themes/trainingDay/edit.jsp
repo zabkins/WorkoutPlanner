@@ -20,7 +20,7 @@
         <main>
             <div class="container-fluid">
                 <div class="row justify-content-center my-4">
-                    <div class="col mx-2">
+                    <div class="col">
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
@@ -28,7 +28,7 @@
                                         <a class="btn btn-dark text-decoration-none text-white my-4"
                                            href="/tday/edit/name/${trainingDayToEdit.id}"
                                            role="button">
-                                            Edit name
+                                            Edit Day's Name
                                             <span class="sb-nav-link-icon"><i class="bi bi-pen"></i>
                                             </span>
                                         </a>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center my-4">
-                    <div class="col mx-2">
+                    <div class="col">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="text-center my-2 text-uppercase">Add new exercise</h5>

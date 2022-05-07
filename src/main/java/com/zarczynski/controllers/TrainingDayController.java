@@ -121,4 +121,9 @@ public class TrainingDayController {
         return String.format("redirect:/tday/edit/%d",trainingDay.getId());
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteTrainingDayById(@PathVariable Long id){
+        return null;
+    }
+
 }

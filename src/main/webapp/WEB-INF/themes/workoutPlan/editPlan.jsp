@@ -23,7 +23,23 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="text-center my-4 text-uppercase">${workoutPlanToEdit.name}</h3>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <a class="btn btn-dark text-decoration-none text-white my-4"
+                                           href="/plan/edit/name/${workoutPlanToEdit.id}"
+                                           role="button">
+                                            Edit Plan's Name
+                                            <span class="sb-nav-link-icon"><i class="bi bi-pen"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="text-center my-4 text-uppercase">${workoutPlanToEdit.name}</h3>
+                                    </div>
+                                    <div class="col-2">
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -41,7 +57,11 @@
                                     </div>
                                     <div class="col-2 d-flex justify-content-center align-items-end">
                                         <a class="btn btn-dark text-decoration-none text-white text-capitalize my-2"
-                                           href="/tday/add/${workoutPlanToEdit.id}" role="button">add training day</a>
+                                           href="/tday/add/${workoutPlanToEdit.id}" role="button">
+                                            add training day <span class="sb-nav-link-icon"><i
+                                                class="bi bi-plus-square"></i>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -54,23 +74,41 @@
                                                 <div class="card my-2">
                                                     <div class="card-body">
                                                         <div class="row d-flex align-items-center">
-                                                            <div class="col-2">
+                                                            <div class="col-3">
                                                                 <a class="btn btn-dark text-decoration-none text-white"
-                                                                   href="/tday/edit/${tday.id}" role="button">Edit</a>
+                                                                   href="/tday/edit/${tday.id}" role="button">
+                                                                    Edit <span class="sb-nav-link-icon"><i
+                                                                        class="bi bi-pen"></i></span>
+                                                                </a>
                                                             </div>
-                                                            <div class="col-8 text-center">
+                                                            <div class="col-6 text-center">
                                                                 <h3 class="card-title">${tday.name}</h3>
                                                             </div>
-                                                            <div class="col-2">
+                                                            <div class="col-3 d-flex justify-content-end">
                                                                 <a class="btn btn-danger text-decoration-none"
-                                                                   href="#" role="button" id="deleteDayBtn">Delete</a>
+                                                                   href="${tday.id}" role="button" id="deleteDayBtn">
+                                                                    Delete <span class="sb-nav-link-icon"><i
+                                                                        class="bi bi-x-square"></i></span>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item text-center"><b>EXERCISES</b></li>
                                                         <c:forEach items="${tday.exercises}" var="exercise">
-                                                            <li class="list-group-item text-center">${exercise.name}</li>
+                                                            <li class="list-group-item text-center">
+                                                                <div class="row">
+                                                                    <div class="col-3">
+
+                                                                    </div>
+                                                                    <div class="col-6 text-center">
+                                                                        ${exercise.name}
+                                                                    </div>
+                                                                    <div class="col-3">
+                                                                        <span class="align-self-end text-secondary">(${exercise.muscleGroup.name})</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
                                                         </c:forEach>
                                                     </ul>
                                                 </div>
@@ -116,5 +154,7 @@
 <script src="/resources/assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="/resources/js/datatables-simple-demo.js"></script>
+<script src="/resources/js/confirm-delete.js"></script>
+
 </body>
 </html>
