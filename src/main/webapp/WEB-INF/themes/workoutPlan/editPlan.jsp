@@ -86,7 +86,7 @@
                                                             </div>
                                                             <div class="col-3 d-flex justify-content-end">
                                                                 <a class="btn btn-danger text-decoration-none"
-                                                                   href="${tday.id}" role="button" id="deleteDayBtn">
+                                                                   href="/tday/delete/${tday.id}" role="button" id="deleteDayBtn">
                                                                     Delete <span class="sb-nav-link-icon"><i
                                                                         class="bi bi-x-square"></i></span>
                                                                 </a>
@@ -154,7 +154,6 @@
 <script src="/resources/assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="/resources/js/datatables-simple-demo.js"></script>
-<script src="/resources/js/confirm-delete.js"></script>
 
 </body>
 </html>

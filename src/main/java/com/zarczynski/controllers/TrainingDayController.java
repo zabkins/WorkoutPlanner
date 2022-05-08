@@ -122,11 +122,19 @@ public class TrainingDayController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteTrainingDayById(@PathVariable Long id){
+    public String redirectToDeletConfirmation(Model model, @PathVariable Long id){
+        Optional<TrainingDay> trainingDayToDeleteOpt = trainingDayRepository.findById(id);
+        TrainingDay trainingDayToDelete = trainingDayToDeleteOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        model.addAttribute("trainingDayToDelete",trainingDayToDelete);
+        return "/trainingDay/confirmDelete";
+    }
+
+    @GetMapping("/delete/confirm/{id}")
+    public String deleteConfirmedDay(@PathVariable Long id){
         Long workoutPlanId = workoutPlanRepository.getWorkoutPlanIdByTrainingDayId(id);
+        trainingDayRepository.deleteTrainingDayFromWorkoutPlan(id);
         trainingDayRepository.deleteById(id);
-        //tu jakos z foreign key - cos z Cascade bedzie ( to samo w exercise list)
-        return String.format("redirect:/plan/edit/%d",workoutPlanId);
+        return String.format("redirect:/tday/redirect/%d",workoutPlanId);
     }
 
 }

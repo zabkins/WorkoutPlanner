@@ -15,4 +15,9 @@ public interface TrainingDayRepository extends JpaRepository<TrainingDay, Long> 
     void deleteExerciseFromTrainingDayById(Long trainingDayId,Long exerciseId);
 
 
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM workout_plan_training_days WHERE training_days_id = ?1",nativeQuery = true)
+    void deleteTrainingDayFromWorkoutPlan(Long trainingDayId);
+
 }
