@@ -27,4 +27,30 @@ public class HomeController {
         model.addAttribute("activeWorkoutPlan",activeWorkoutPlan);
         return "/index";
     }
+
+    @RequestMapping("/home/active")
+    public String showActiveWorkoutPlan(Model model){
+        Optional<WorkoutPlan> activeWorkoutPlanOptional = workoutPlanRepository.getActiveWorkoutPlan();
+        WorkoutPlan activeWorkoutPlan = activeWorkoutPlanOptional.orElse(null);
+        model.addAttribute("activeWorkoutPlan",activeWorkoutPlan);
+        return "/workoutPlan/viewPlan";
+    }
+
+    @RequestMapping("/home/active/edit")
+    public String forwardToEditingActivePlan(){
+        Optional<WorkoutPlan> activeWorkoutPlanOptional = workoutPlanRepository.getActiveWorkoutPlan();
+        WorkoutPlan activeWorkoutPlan = activeWorkoutPlanOptional.orElse(null);
+        if(activeWorkoutPlan == null){
+            return "/workoutPlan/viewPlan";
+        }
+        return String.format("redirect:/plan/edit/%d",activeWorkoutPlan.getId());
+    }
+
+    @RequestMapping("/home/list")
+    public String showAllPlans(Model model){
+        List<WorkoutPlan> allPlans = workoutPlanRepository.findAll();
+        model.addAttribute("allPlans",allPlans);
+        return "/workoutPlan/list";
+    }
+
 }

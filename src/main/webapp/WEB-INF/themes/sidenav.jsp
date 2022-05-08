@@ -16,11 +16,11 @@
                     Homepage
                 </a>
                 <div class="sb-sidenav-menu-heading">Workout Plans</div>
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="/home/active">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     View Active Plan
                 </a>
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="/home/active/edit">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     Edit Active Plan
                 </a>
@@ -28,7 +28,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     Add New Plan
                 </a>
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="/home/list">
                     <div class="sb-nav-link-icon"><i class="bi bi-chevron-double-right"></i></div>
                     All Workout Plans
                 </a>

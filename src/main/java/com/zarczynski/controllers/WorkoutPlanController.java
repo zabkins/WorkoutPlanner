@@ -68,6 +68,27 @@ public class WorkoutPlanController {
         return String.format("redirect:/plan/edit/%d",workoutPlan.getId());
     }
 
+    @GetMapping("/active/{id}")
+    public String makePlanActiveByGivenId(@PathVariable Long id){
+        workoutPlanRepository.setAllActiveWorkoutPlansInactive();
+        workoutPlanRepository.setWorkoutPlanActiveById(id);
+        return "redirect:/home/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String showPlanDeleteConfirmation(Model model, @PathVariable Long id){
+        Optional<WorkoutPlan> workoutPlanToDeleteOpt = workoutPlanRepository.findById(id);
+        WorkoutPlan workoutPlanToDelete = workoutPlanToDeleteOpt.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        model.addAttribute("workoutPlanToDelete",workoutPlanToDelete);
+        return "/workoutPlan/confirmDelete";
+    }
+
+    @GetMapping("/delete/confirm/{id}")
+    public String deleteConfirmedPlan(@PathVariable Long id){
+        workoutPlanRepository.deleteWorkoutPlanTrainingDaysPlanByPlanId(id);
+        workoutPlanRepository.deleteById(id);
+        return "redirect:/home/list";
+    }
 
 
 }

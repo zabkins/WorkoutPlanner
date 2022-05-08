@@ -11699,3 +11699,10 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+.home-background{
+  background-image: url("/resources/img/main-page-theme.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

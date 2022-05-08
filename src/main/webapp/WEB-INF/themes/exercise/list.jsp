@@ -90,10 +90,10 @@
                                             <p class="text-center text-black">${exercise.muscleGroup.name}</p>
                                         </div>
                                         <div class="col-2 my-1">
-                                            <a class="btn btn-danger text-decoration-none"
+                                            <a class="text-decoration-none align-self-end"
                                                href="/exercise/delete/${exercise.id}" role="button">
-                                                Delete <span class="sb-nav-link-icon"><i class="bi bi-x-square"></i>
-                                                </span>
+                                                                            <span class="sb-nav-link-icon fs-5" style="color: darkred"><i
+                                                                                    class="bi bi-x-circle-fill"></i></span>
                                             </a>
                                         </div>
                                     </div>

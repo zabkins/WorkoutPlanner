@@ -85,10 +85,10 @@
                                                                 <h3 class="card-title">${tday.name}</h3>
                                                             </div>
                                                             <div class="col-3 d-flex justify-content-end">
-                                                                <a class="btn btn-danger text-decoration-none"
-                                                                   href="/tday/delete/${tday.id}" role="button" id="deleteDayBtn">
-                                                                    Delete <span class="sb-nav-link-icon"><i
-                                                                        class="bi bi-x-square"></i></span>
+                                                                <a class="text-decoration-none align-self-end"
+                                                                   href="/tday/delete/${tday.id}" role="button">
+                                                                            <span class="sb-nav-link-icon fs-3" style="color: darkred"><i
+                                                                                    class="bi bi-x-circle-fill"></i></span>
                                                                 </a>
                                                             </div>
                                                         </div>
