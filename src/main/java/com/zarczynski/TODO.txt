@@ -1,0 +1,5 @@
+TODO:
+- Create entity for Set:
+    -it will have fields reps and weight
+    -exercises will have field List<ExerciseSet>
+    -exercise will have ability to add/edit/remove sets and adjust number of reps and weight
