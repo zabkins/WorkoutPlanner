@@ -77,8 +77,10 @@
                                                             <p class="text-center text-black">${exercise.name}</p>
                                                         </div>
                                                         <div class="col">
-                                                            <a class="text-decoration-none link-dark" href="/exercise/details/${exercise.id}" role="button">
-                                                                <span class="sb-nav-link-icon mx-4"><i class="bi bi-info-circle-fill"></i></span>
+                                                            <a class="text-decoration-none link-dark"
+                                                               href="/exercise/details/${exercise.id}" role="button">
+                                                                <span class="sb-nav-link-icon mx-4"><i
+                                                                        class="bi bi-info-circle-fill"></i></span>
                                                             </a>
 
                                                         </div>
@@ -92,8 +94,10 @@
                                         <div class="col-2 my-1">
                                             <a class="text-decoration-none align-self-end"
                                                href="/exercise/delete/${exercise.id}" role="button">
-                                                                            <span class="sb-nav-link-icon fs-5" style="color: darkred"><i
-                                                                                    class="bi bi-x-circle-fill"></i></span>
+                                                <span class="sb-nav-link-icon fs-5"
+                                                      style="color: darkred">
+                                                    <i class="bi bi-x-circle-fill"></i>
+                                                </span>
                                             </a>
                                         </div>
                                     </div>

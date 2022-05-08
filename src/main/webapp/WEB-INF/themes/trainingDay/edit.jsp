@@ -88,11 +88,11 @@
                                 <div class="row my-4">
                                     <div class="col">
                                         <div class="form-label">
-                                            <h6>The List doesn't contain exercises you want to add? Add them by clicking
+                                            <h6>The List doesn't contain exercises you want to include in your training day? Add them by clicking
                                                 on the button</h6>
                                         </div>
                                     </div>
-                                    <div class="col d-flex justify-content-center">
+                                    <div class="col d-flex justify-content-center align-items-center">
                                         <a class="btn btn-dark text-decoration-none my-1" href="/exercise/add"
                                            role="button">
                                             Add new exercises
@@ -142,8 +142,13 @@
                                             <p class="text-center text-black">${exercise.muscleGroup.name}</p>
                                         </div>
                                         <div class="col-1">
-                                            <a class="btn btn-danger text-decoration-none"
-                                               href="/tday/delete/${trainingDayToEdit.id}/${exercise.id}" role="button">X</a>
+                                            <a class="text-decoration-none align-self-end"
+                                               href="/tday/delete/${trainingDayToEdit.id}/${exercise.id}" role="button">
+                                                <span class="sb-nav-link-icon fs-5"
+                                                      style="color: darkred">
+                                                    <i class="bi bi-x-circle-fill"></i>
+                                                </span>
+                                            </a>
                                         </div>
                                     </div>
                                 </c:forEach>

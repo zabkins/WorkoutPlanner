@@ -29,8 +29,13 @@
                   <div class="col">
                     <h3 class="text-center my-4 text-uppercase">Exercise description</h3>
                   </div>
-                  <div class="col align-items-end">
-                      <a class="btn btn-dark my-4" href="/exercise/list" role="button">Back to list</a>
+                  <div class="col d-flex justify-content-end">
+                    <a class="btn btn-dark text-decoration-none text-white my-4"
+                       href="/exercise/list" role="button">
+                      Back to list
+                      <span class="sb-nav-link-icon"><i class="bi bi-back"></i>
+                                            </span>
+                    </a>
                   </div>
                 </div>
               </div>
