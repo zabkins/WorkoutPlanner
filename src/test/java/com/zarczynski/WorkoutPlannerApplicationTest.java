@@ -1,9 +1,9 @@
 package com.zarczynski;
 
-import com.zarczynski.controllers.ExerciseController;
-import com.zarczynski.controllers.HomeController;
-import com.zarczynski.controllers.TrainingDayController;
-import com.zarczynski.controllers.WorkoutPlanController;
+import com.zarczynski.controller.ExerciseController;
+import com.zarczynski.controller.HomeController;
+import com.zarczynski.controller.TrainingDayController;
+import com.zarczynski.controller.WorkoutPlanController;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.springframework.beans.factory.annotation.Autowired;

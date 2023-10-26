@@ -1,6 +1,6 @@
-package com.zarczynski.repositories;
+package com.zarczynski.repository;
 
-import com.zarczynski.entities.MuscleGroup;
+import com.zarczynski.entity.MuscleGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MuscleGroupRepository extends JpaRepository<MuscleGroup, Long> {

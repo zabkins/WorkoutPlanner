@@ -1,4 +1,4 @@
-package com.zarczynski.entities;
+package com.zarczynski.entity;
 
 import javax.persistence.*;
 

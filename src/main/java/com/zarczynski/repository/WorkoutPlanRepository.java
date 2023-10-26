@@ -1,6 +1,6 @@
-package com.zarczynski.repositories;
+package com.zarczynski.repository;
 
-import com.zarczynski.entities.WorkoutPlan;
+import com.zarczynski.entity.WorkoutPlan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

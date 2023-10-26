@@ -1,8 +1,8 @@
-package com.zarczynski.repositories;
+package com.zarczynski.repository;
 
 
-import com.zarczynski.entities.Exercise;
-import com.zarczynski.entities.MuscleGroup;
+import com.zarczynski.entity.Exercise;
+import com.zarczynski.entity.MuscleGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
